@@ -16,11 +16,13 @@ seq:
 
   - id: header
     type: busmail_header
+    size: 1
     doc: The actual header is going to get parsed after the CRC calculation
 
   - id: mail
     type: busmail_mail
     size: length - 1
+    if: length - 1 > 0
     doc: The payload of the frame, parsed later
 
   - id: checksum
