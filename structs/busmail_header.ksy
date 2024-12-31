@@ -12,6 +12,14 @@ enums:
   ctrl_frame_type:
     0: supervisory
     1: unnumbered
+    
+  su_id_type:
+    0b00: receive_ready
+    0b01: reject
+    0b10: receive_not_ready
+    
+  un_id_type:
+    0b00: async_balanced
 
 seq:
   - id: ic_frame
@@ -34,10 +42,12 @@ seq:
   
   - id: su_id
     type: b2
+    enum: su_id_type
     if: ic_frame == ic_enum::control and su_control_frame == ctrl_frame_type::supervisory
     doc: Supervisory Identifier (00=RR, 01=REJ, 10=RNR, etc.)
   - id: un_id
     type: b2
+    enum: un_id_type
     if: ic_frame == ic_enum::control and su_control_frame == ctrl_frame_type::unnumbered
     doc: Unnumbered frame Identifier (00=SABM, etc.)
   
