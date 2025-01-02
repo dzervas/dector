@@ -6,6 +6,7 @@ enums:
     # FP API
     # Got using `rg -o 'Primitive?:? API_[\w_]+ = 0x\w+' <path to "the PDF" that got turned into txt> | awk '{ print $4 ":" , $2}' | sort`
     0x4000: fp_reset_req
+    0x4001: fp_reset_ind
     0x4002: fp_get_fw_version_req
     0x4004: fp_mm_get_id_req
     0x4006: fp_mm_get_model_req
@@ -258,3 +259,5 @@ enums:
     0x5902: hal_led_req
     0x5904: hal_read_req
     0x5906: hal_write_req
+
+    0xF0F4: rtx_eap_target_reset_ind
