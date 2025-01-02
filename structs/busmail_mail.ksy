@@ -3,6 +3,9 @@ meta:
   endian: be
   # Got from SC14CVMDECTDEVKT.pdf page 92
 
+  imports:
+    - primitives
+
 seq:
   - id: program_id
     type: u1
@@ -22,6 +25,7 @@ seq:
 
   - id: primitive
     type: u2le
+    enum: primitives
     doc: >
       The primitive is the actual API command to send/receive commands to/from the CVM
       example: keypad command to send a key to the pstn line
