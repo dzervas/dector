@@ -1,15 +1,14 @@
 { pkgs ? import <nixpkgs> {} }:
   pkgs.mkShell {
-    packages = with pkgs.buildPackages; [
+    packages = with pkgs; [
       kaitai-struct-compiler
-
-      (python3.withPackages (p: with p; [
-        pwntools
-        kaitaistruct
-        pyserial
-        openpyxl
-      ]))
+      pipenv
     ];
+
+    shellHook = ''
+      echo "Building Kaitai Struct Python package"
+      kaitai-struct-compiler -t python --python-package busmail --outdir busmail structs/busmail.ksy
+    '';
 }
 
 # To clean up the txt files use:

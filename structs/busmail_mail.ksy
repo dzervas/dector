@@ -25,7 +25,7 @@ seq:
 
   - id: primitive
     type: u2le
-    enum: primitives
+    enum: primitives::primitives
     doc: >
       The primitive is the actual API command to send/receive commands to/from the CVM
       example: keypad command to send a key to the pstn line
