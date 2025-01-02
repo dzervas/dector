@@ -2,7 +2,11 @@
   pkgs.mkShell {
     packages = with pkgs.buildPackages; [
       kaitai-struct-compiler
-      python3Packages.pwntools
-      python3Packages.kaitaistruct
+
+      (python3.withPackages (p: with p; [
+        pwntools
+        kaitaistruct
+        pyserial
+      ]))
     ];
 }
